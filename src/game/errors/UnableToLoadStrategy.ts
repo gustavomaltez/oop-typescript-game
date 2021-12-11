@@ -4,7 +4,7 @@
  */
 class UnableToLoadStrategy extends Error {
   constructor(message?: string) {
-    super(message);
+    super(`Unable to load strategy: ${message}`);
   }
 }
 

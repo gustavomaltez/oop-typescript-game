@@ -1,3 +1,4 @@
+import { UnableToLoadDrawnEngine, UnableToLoadStrategy } from "@errors";
 import Canvas from "./strategies/Canvas";
 import { IDrawnEngine, Strategy, StrategyMap } from "./types";
 
@@ -25,7 +26,10 @@ class DrawnEngineManager {
 
     const strategy = strategiesMap[strategyId];
 
-    if (!strategy) throw new Error('Unable to load strategy');
+    if (!strategy)
+      throw new UnableToLoadStrategy(`
+          The strategy with "${strategyId}" was not found on strategyMap. Please use a valid strategy id.
+      `);
 
     return strategy;
   };
@@ -34,9 +38,11 @@ class DrawnEngineManager {
    * Loads the current engine and returns the loaded engine
    */
   public loadEngine = async (): Promise<IDrawnEngine> => {
-    if (!this.engine) throw new Error('Unable to load engine');
+    if (!this.engine)
+      throw new UnableToLoadDrawnEngine('No engine was found');
 
-    if (this.isLoaded) throw new Error('Unable to load two engines at same time');
+    if (this.isLoaded)
+      throw new UnableToLoadDrawnEngine('Unable to load two engines at same time');
 
     await this.engine.load();
 
