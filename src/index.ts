@@ -12,5 +12,4 @@ window.onload = async () => {
   const drawnEngine = await drawnEngineManager.loadEngine();
 
   const gameEngine = new GameEngine(drawnEngine);
-  Logger.warn(Service.DRAWN_ENGINE, 'just testing');
 }

@@ -4,7 +4,7 @@
  */
 class UnableToLoadDrawnEngine extends Error {
   constructor(message?: string) {
-    super(`Unable to load strategy: ${message}`);
+    super(`Unable to load drawn engine: ${message}`);
   }
 }
 
