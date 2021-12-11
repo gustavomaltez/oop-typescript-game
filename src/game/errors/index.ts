@@ -1,1 +1,5 @@
-export * from './UnableToLoadStrategy';
+import UnableToLoadStrategy from "./UnableToLoadStrategy";
+
+export {
+  UnableToLoadStrategy
+}

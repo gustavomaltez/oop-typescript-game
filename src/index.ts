@@ -1,6 +1,5 @@
-import DrawnEngineManager from "./game/engines/DrawnEngine/DrawnEngineManager";
-import { Strategy } from "./game/engines/DrawnEngine/types";
-import GameEngine from "./game/engines/GameEngine";
+import { DrawnEngineManager, GameEngine, Strategy } from '@engines'
+import { Logger, Service } from '@logger';
 
 /**
  * Code to be executed once the browser loads
@@ -13,4 +12,5 @@ window.onload = async () => {
   const drawnEngine = await drawnEngineManager.loadEngine();
 
   const gameEngine = new GameEngine(drawnEngine);
+  Logger.warn(Service.DRAWN_ENGINE, 'just testing');
 }

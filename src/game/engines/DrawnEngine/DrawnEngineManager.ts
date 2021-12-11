@@ -1,5 +1,5 @@
-import Canvas from './strategies/Canvas';
-import { IDrawnEngine, Strategy, StrategyMap } from './types';
+import Canvas from "./strategies/Canvas";
+import { IDrawnEngine, Strategy, StrategyMap } from "./types";
 
 /**
  * Represents the drawn engine manager
