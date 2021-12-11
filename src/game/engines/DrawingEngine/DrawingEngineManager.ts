@@ -1,13 +1,13 @@
-import { UnableToLoadDrawnEngine, UnableToLoadStrategy } from "@errors";
+import { UnableToLoadDrawingEngine, UnableToLoadStrategy } from "@errors";
 import { Logger, Service } from "@logger";
 import Canvas from "./strategies/Canvas";
-import { IDrawnEngine, Strategy, StrategyMap } from "./types";
+import { IDrawingEngine, Strategy, StrategyMap } from "./types";
 
 /**
- * An abstraction to load the actual drawn engine instance.
+ * An abstraction to load the actual drawing engine instance.
  */
-class DrawnEngineManager {
-  private engine: IDrawnEngine;
+class DrawingEngineManager {
+  private engine: IDrawingEngine;
 
   private isLoaded = false;
 
@@ -23,9 +23,9 @@ class DrawnEngineManager {
    * Searches on strategies map for an strategy and returns it.
    *
    * @param {Strategy} strategyId The strategy id to be loaded.
-   * @returns {IDrawnEngine} A drawn engine.
+   * @returns {IDrawingEngine} A drawing engine.
    */
-  private getEngine = (strategyId: Strategy): IDrawnEngine => {
+  private getEngine = (strategyId: Strategy): IDrawingEngine => {
     const strategiesMap: StrategyMap = {
       [Strategy.CANVAS]: new Canvas(),
     };
@@ -48,7 +48,7 @@ class DrawnEngineManager {
   /**
    * Loads the current engine and returns the loaded engine
    */
-  public loadEngine = async (): Promise<IDrawnEngine> => {
+  public loadEngine = async (): Promise<IDrawingEngine> => {
     Logger.info(
       Service.DRAWN_ENGINE_MANAGER,
       `Trying to load the current engine...`
@@ -59,7 +59,7 @@ class DrawnEngineManager {
         Service.DRAWN_ENGINE_MANAGER,
         `Unable to load the current engine!`
       );
-      throw new UnableToLoadDrawnEngine('No engine was found');
+      throw new UnableToLoadDrawingEngine('No engine was found');
     }
 
     if (this.isLoaded) {
@@ -67,7 +67,7 @@ class DrawnEngineManager {
         Service.DRAWN_ENGINE_MANAGER,
         `The current engine is already loaded!`
       );
-      throw new UnableToLoadDrawnEngine('Unable to load two engines at same time');
+      throw new UnableToLoadDrawingEngine('Unable to load two engines at same time');
     }
 
     await this.engine.load();
@@ -82,4 +82,4 @@ class DrawnEngineManager {
   };
 }
 
-export default DrawnEngineManager;
+export default DrawingEngineManager;

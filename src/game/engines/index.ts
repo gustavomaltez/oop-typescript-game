@@ -1,14 +1,14 @@
-import DrawnEngineManager from "./DrawnEngine/DrawnEngineManager";
+import DrawingEngineManager from "./DrawingEngine/DrawingEngineManager";
 import GameEngine from "./GameEngine";
-import { IDrawnEngine, Strategy, StrategyMap } from './DrawnEngine/types';
+import { IDrawingEngine, Strategy, StrategyMap } from './DrawingEngine/types';
 
 export {
   Strategy,
   GameEngine,
-  DrawnEngineManager
+  DrawingEngineManager
 };
 
 export type {
-  IDrawnEngine,
+  IDrawingEngine,
   StrategyMap,
 }

@@ -1,11 +1,11 @@
 import { UnableToLoadCanvas } from '@errors';
 import { Logger, Service } from '@logger';
-import { IDrawnEngine } from '@engines';
+import { IDrawingEngine } from '@engines';
 
 /**
  * Strategy to drawn things on screen using the default canvas API
  */
-class Canvas implements IDrawnEngine {
+class Canvas implements IDrawingEngine {
 
   /**
    * Loads the canvas engine using the default browser Canvas API.

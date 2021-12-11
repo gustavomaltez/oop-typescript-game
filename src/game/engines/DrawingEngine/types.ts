@@ -9,9 +9,9 @@ export enum Strategy {
 }
 
 /**
- * Represents a basic drawn engine, all strategies should follow this interface.
+ * Represents a basic drawing engine, all strategies should follow this interface.
  */
-export interface IDrawnEngine {
+export interface IDrawingEngine {
 
   /**
    * Loads the current engine
@@ -20,8 +20,8 @@ export interface IDrawnEngine {
 }
 
 /**
- * Represents the strategy map used to load some drawn engine.
+ * Represents the strategy map used to load some drawing engine.
  */
 export type StrategyMap = {
-  [key in Strategy]: IDrawnEngine;
+  [key in Strategy]: IDrawingEngine;
 }

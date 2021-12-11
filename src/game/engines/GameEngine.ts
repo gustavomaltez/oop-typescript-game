@@ -1,12 +1,12 @@
-import { IDrawnEngine } from "@engines";
+import { IDrawingEngine } from "@engines";
 
 /**
  * Represents a base game engine
  */
 class GameEngine {
-  private drawnEngine: IDrawnEngine;
+  private drawnEngine: IDrawingEngine;
 
-  constructor(drawnEngine: IDrawnEngine) {
+  constructor(drawnEngine: IDrawingEngine) {
     this.drawnEngine = drawnEngine;
   }
 }

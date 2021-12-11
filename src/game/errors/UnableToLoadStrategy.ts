@@ -1,5 +1,5 @@
 /**
- * Represents an error that should be thrown when the drawn engine manager is unable to
+ * Represents an error that should be thrown when the drawing engine manager is unable to
  * load some strategy.
  */
 class UnableToLoadStrategy extends Error {

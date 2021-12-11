@@ -1,4 +1,4 @@
-import { DrawnEngineManager, GameEngine, Strategy } from '@engines'
+import { DrawingEngineManager, GameEngine, Strategy } from '@engines'
 import { Logger, Service } from '@logger';
 
 /**
@@ -8,7 +8,7 @@ import { Logger, Service } from '@logger';
  * loading the game engine itself.
  */
 window.onload = async () => {
-  const drawnEngineManager = new DrawnEngineManager(Strategy.CANVAS);
+  const drawnEngineManager = new DrawingEngineManager(Strategy.CANVAS);
   const drawnEngine = await drawnEngineManager.loadEngine();
 
   const gameEngine = new GameEngine(drawnEngine);

@@ -1,9 +1,9 @@
 import UnableToLoadStrategy from "./UnableToLoadStrategy";
-import UnableToLoadDrawnEngine from "./UnableToLoadDrawnEngine";
+import UnableToLoadDrawingEngine from "./UnableToLoadDrawingEngine";
 import UnableToLoadCanvas from "./UnableToLoadCanvas";
 
 export {
   UnableToLoadCanvas,
   UnableToLoadStrategy,
-  UnableToLoadDrawnEngine,
+  UnableToLoadDrawingEngine,
 }
