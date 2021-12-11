@@ -10,7 +10,11 @@ class Canvas implements IDrawingEngine {
   /**
    * Loads the canvas engine using the default browser Canvas API.
    */
-  public load = (): Promise<void> => Promise.resolve();
+  public load = (): Promise<void> => {
+    const canvas = this.getCanvas();
+
+    return Promise.resolve();
+  };
 
   /**
    * Searches on DOM for a canvas element, if none was found, creates a new on
@@ -33,12 +37,15 @@ class Canvas implements IDrawingEngine {
       `No canvas was found, attempting to create a new one...`
     );
 
-    const newCanvasElement = document.createElement('canvas');
+    const customCanvas = document.createElement('canvas');
 
-    return newCanvasElement;
+    this.attachCustomCanvasOnBody(customCanvas);
+
+    return customCanvas;
   }
 
   /**
+   * Searches for the document body and inserts the provided canvas into it.
    *
    * @param {HTMLCanvasElement} canvas Custom canvas to be inserted into body.
    */
@@ -57,7 +64,7 @@ class Canvas implements IDrawingEngine {
       throw new UnableToLoadCanvas("Document body wasn't found");
     }
 
-    Logger.error(
+    Logger.info(
       Service.CANVAS_STRATEGY,
       `Document body was found, appending the canvas into it.`
     );
