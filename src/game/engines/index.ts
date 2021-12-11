@@ -5,7 +5,10 @@ import { IDrawnEngine, Strategy, StrategyMap } from './DrawnEngine/types';
 export {
   Strategy,
   GameEngine,
-  StrategyMap,
-  IDrawnEngine,
-  DrawnEngineManager,
+  DrawnEngineManager
 };
+
+export type {
+  IDrawnEngine,
+  StrategyMap,
+}
