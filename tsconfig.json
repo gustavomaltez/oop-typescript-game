@@ -13,8 +13,12 @@
     "typeRoots": [
       "node_modules/@types"
     ],
+    "baseUrl": "./",
+    "paths": {
+      "@engines/*": ["src/game/engines/*"],
+      "@errors/*": ["src/game/errors/*"],
+      "@handlers/*": ["src/game/handlers/*"],
+      "@logger/*": ["src/game/logger/*"],
+    }
   },
-  "include": [
-    "src",
-  ]
 }
