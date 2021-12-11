@@ -1,4 +1,4 @@
-import DrawnEngineManager from "./game/engines/DrawnEngine/DrawnEngine";
+import DrawnEngineManager from "./game/engines/DrawnEngine/DrawnEngineManager";
 import { Strategy } from "./game/engines/DrawnEngine/types";
 import GameEngine from "./game/engines/GameEngine";
 
