@@ -1,0 +1,1 @@
+This folder should include assets files that will be accessible during the runtime, like images, sounds etc.
