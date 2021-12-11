@@ -1,6 +1,6 @@
 import { UnableToLoadDrawingEngine, UnableToLoadStrategy } from "@errors";
 import { Logger, Service } from "@logger";
-import Canvas from "./strategies/Canvas";
+import Canvas from "./strategies/Canvas/Canvas";
 import { IDrawingEngine, Strategy, StrategyMap } from "./types";
 
 /**

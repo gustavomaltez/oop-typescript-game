@@ -1,28 +1,14 @@
-import { UnableToLoadCanvas } from '@errors';
-import { Logger, Service } from '@logger';
-import { IDrawingEngine } from '@engines';
+import { UnableToLoadCanvas } from "@errors";
+import { Logger, Service } from "@logger";
 
-/**
- * Strategy to drawn things on screen using the default canvas API
- */
-class Canvas implements IDrawingEngine {
-
-  /**
-   * Loads the canvas engine using the default browser Canvas API.
-   */
-  public load = (): Promise<void> => {
-    const canvas = this.getCanvas();
-
-    return Promise.resolve();
-  };
-
+abstract class CanvasLoader {
   /**
    * Searches on DOM for a canvas element, if none was found, creates a new on
    * and inserts it into DOM.
    *
    * @returns {HTMLCanvasElement} The canvas element.
    */
-  private getCanvas = (): HTMLCanvasElement => {
+   public static getCanvas = (): HTMLCanvasElement => {
     Logger.info(
       Service.CANVAS_STRATEGY,
       `Searching on DOM for a existing Canvas...`
@@ -49,7 +35,7 @@ class Canvas implements IDrawingEngine {
    *
    * @param {HTMLCanvasElement} canvas Custom canvas to be inserted into body.
    */
-  private attachCustomCanvasOnBody = (canvas: HTMLCanvasElement) => {
+  private static attachCustomCanvasOnBody = (canvas: HTMLCanvasElement) => {
     Logger.info(
       Service.CANVAS_STRATEGY,
       `Searching for document body...`
@@ -72,4 +58,4 @@ class Canvas implements IDrawingEngine {
   }
 }
 
-export default Canvas;
+export default CanvasLoader;
