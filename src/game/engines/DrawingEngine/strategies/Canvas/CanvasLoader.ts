@@ -16,7 +16,7 @@ abstract class CanvasLoader {
   public static getCanvas = (): HTMLCanvasElement => {
     Logger.info(
       Service.CANVAS_LOADER,
-      `Searching on DOM for a existing Canvas...`,
+      `Searching on DOM for an existing Canvas...`,
     );
 
     const canvasElement = document.querySelector('canvas');

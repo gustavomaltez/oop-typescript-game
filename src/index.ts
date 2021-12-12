@@ -20,8 +20,8 @@ window.onload = async () => {
     spriteSize: 64,
   };
 
-  const drawnEngineManager = new DrawingEngineManager(Strategy.CANVAS);
-  const drawnEngine = drawnEngineManager.loadEngine();
+  const drawningEngineManager = new DrawingEngineManager(Strategy.CANVAS);
+  const drawnEngine = drawningEngineManager.loadEngine();
 
   const gameEngine = new GameEngine(drawnEngine, gameSettings);
   gameEngine.loadGame();

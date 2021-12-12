@@ -24,7 +24,10 @@ class Canvas implements IDrawingEngine {
    * @param {IGameSettings} gameSettings Current running game settings.
    */
   public setupEngine = (gameSettings: IGameSettings) => {
-    Logger.info(Service.CANVAS_STRATEGY, `Setting up canvas engine...`);
+    Logger.info(
+      Service.CANVAS_STRATEGY,
+      `Setting up canvas drawing engine strategy...`,
+    );
 
     const { width, height } = gameSettings.dimensions;
     this.canvas.width = width;
