@@ -1,3 +1,5 @@
+import { IGameSettings } from '../GameEngine/types';
+
 /**
  * Represents all available drawing engines
  */
@@ -12,5 +14,10 @@ export enum Strategy {
  * Represents a basic drawing engine, all strategies should follow this interface.
  */
 export interface IDrawingEngine {
-  context: CanvasRenderingContext2D;
+  /**
+   * Method to setup the drawing engine.
+   *
+   * @param {IGameSettings} gameSettings Current running game settings.
+   */
+  setupEngine: (gameSettings: IGameSettings) => Promise<void>;
 }
