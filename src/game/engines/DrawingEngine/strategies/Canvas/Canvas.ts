@@ -29,12 +29,16 @@ class Canvas implements IDrawingEngine {
       `Setting up canvas drawing engine strategy...`,
     );
 
-    const { width, height } = gameSettings.dimensions;
-    this.canvas.width = width;
-    this.canvas.height = height;
+    const { columns, rows } = gameSettings.canvasSize;
+    const { scale, spriteSize } = gameSettings;
+
+    const scaledSpriteSize = spriteSize * scale;
+
+    this.canvas.width = rows * scaledSpriteSize;
+    this.canvas.height = columns * scaledSpriteSize;
 
     // TODO: Make it configurable
-    this.canvas.style.backgroundColor = '#000';
+    this.canvas.style.outline = '1px solid red';
 
     Logger.info(
       Service.CANVAS_STRATEGY,

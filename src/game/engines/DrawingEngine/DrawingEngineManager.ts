@@ -42,9 +42,8 @@ class DrawingEngineManager {
 
     if (this.strategyId === Strategy.CANVAS) return new Canvas();
 
-    if (this.strategyId !== Strategy.CANVAS) {
-      return new Canvas();
-    }
+    if (this.strategyId !== Strategy.CANVAS) return new Canvas();
+
     throw new UnableToLoadStrategy(`
       The strategy with "${
         this.strategyId

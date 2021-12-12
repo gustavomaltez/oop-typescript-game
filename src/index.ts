@@ -13,15 +13,16 @@ import {
  */
 window.onload = async () => {
   const gameSettings: IGameSettings = {
-    dimensions: {
-      height: 640,
-      width: 640,
+    canvasSize: {
+      columns: 20,
+      rows: 20,
     },
-    spriteSize: 64,
+    scale: 2,
+    spriteSize: 16,
   };
 
-  const drawningEngineManager = new DrawingEngineManager(Strategy.CANVAS);
-  const drawnEngine = drawningEngineManager.loadEngine();
+  const drawingEngineManager = new DrawingEngineManager(Strategy.CANVAS);
+  const drawnEngine = drawingEngineManager.loadEngine();
 
   const gameEngine = new GameEngine(drawnEngine, gameSettings);
   gameEngine.loadGame();
