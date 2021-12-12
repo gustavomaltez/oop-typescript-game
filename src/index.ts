@@ -1,6 +1,8 @@
 import {
+  AssetsEngine,
   DrawingEngineManager,
   GameEngine,
+  IAssetsSettings,
   IGameSettings,
   Strategy,
 } from '@engines';
@@ -12,6 +14,42 @@ import {
  * loading the game engine itself.
  */
 window.onload = async () => {
+  const drawingEngineManager = new DrawingEngineManager(Strategy.CANVAS);
+  const drawnEngine = drawingEngineManager.loadEngine();
+
+  const assetsSettings: IAssetsSettings = {
+    audios: [],
+    sprites: [
+      {
+        id: 'playerIdleLeft',
+        spriteSize: 16,
+        path: './assets/textures/player/idle/left.png',
+        spriteCount: 6,
+      },
+      {
+        id: 'playerIdleRight',
+        spriteSize: 16,
+        path: './assets/textures/player/idle/right.png',
+        spriteCount: 6,
+      },
+      {
+        id: 'playerIdleTop',
+        spriteSize: 16,
+        path: './assets/textures/player/idle/up.png',
+        spriteCount: 6,
+      },
+      {
+        id: 'playerIdleDown',
+        spriteSize: 16,
+        path: './assets/textures/player/idle/down.png',
+        spriteCount: 6,
+      },
+    ],
+    loadingRounds: 3,
+    acceptableLoadPercentage: 0.95,
+  };
+
+  const assetsEngine = new AssetsEngine(assetsSettings);
   const gameSettings: IGameSettings = {
     canvasSize: {
       columns: 20,
@@ -21,9 +59,6 @@ window.onload = async () => {
     spriteSize: 16,
   };
 
-  const drawingEngineManager = new DrawingEngineManager(Strategy.CANVAS);
-  const drawnEngine = drawingEngineManager.loadEngine();
-
-  const gameEngine = new GameEngine(drawnEngine, gameSettings);
+  const gameEngine = new GameEngine(drawnEngine, assetsEngine, gameSettings);
   gameEngine.loadGame();
 };

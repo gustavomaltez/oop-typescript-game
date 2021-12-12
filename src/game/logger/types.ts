@@ -3,6 +3,7 @@
  */
 export enum Service {
   GAME_ENGINE = 'Game Engine',
+  ASSETS_ENGINE = 'Assets Engine',
   CANVAS_LOADER = 'Canvas Loader',
   CANVAS_STRATEGY = 'Canvas Strategy',
   DRAWN_ENGINE_MANAGER = 'Drawing Engine Manager',

@@ -1,4 +1,4 @@
-import { IDrawingEngine } from '@engines';
+import { AssetsEngine, IDrawingEngine } from '@engines';
 import { UnableToLoadGame } from '@errors';
 import { Logger, Service } from '@logger';
 import { IGameSettings } from './types';
@@ -13,8 +13,15 @@ class GameEngine {
 
   private drawnEngine: IDrawingEngine;
 
-  constructor(drawnEngine: IDrawingEngine, settings: IGameSettings) {
+  private assetsEngine: AssetsEngine;
+
+  constructor(
+    drawnEngine: IDrawingEngine,
+    assetsEngine: AssetsEngine,
+    settings: IGameSettings,
+  ) {
     this.drawnEngine = drawnEngine;
+    this.assetsEngine = assetsEngine;
     this.settings = settings;
     this.isLoaded = false;
   }
@@ -37,6 +44,7 @@ class GameEngine {
     );
 
     await this.drawnEngine.setupEngine(this.settings);
+    await this.assetsEngine.loadAllAssets();
 
     this.isLoaded = true;
 

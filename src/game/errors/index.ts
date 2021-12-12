@@ -3,6 +3,7 @@ import UnableToLoadDrawingEngine from './UnableToLoadDrawingEngine';
 import UnableToLoadCanvas from './UnableToLoadCanvas';
 import UnableToGetCanvasContext from './UnableToGetCanvasContext';
 import UnableToLoadGame from './UnableToLoadGame';
+import UnableToLoadAssets from './UnableToLoadAssets';
 
 export {
   UnableToLoadGame,
@@ -10,4 +11,5 @@ export {
   UnableToLoadStrategy,
   UnableToLoadDrawingEngine,
   UnableToGetCanvasContext,
+  UnableToLoadAssets,
 };

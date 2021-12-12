@@ -7,9 +7,13 @@ import { Service, ServiceLogColor } from './types';
 abstract class Logger {
   private static isEnabled = true;
 
-  public static enableLog = () => (this.isEnabled = true);
+  public static enableLog = () => {
+    this.isEnabled = true;
+  };
 
-  public static disableLog = () => (this.isEnabled = false);
+  public static disableLog = () => {
+    this.isEnabled = false;
+  };
 
   /**
    * Gets the service log color.
@@ -22,10 +26,11 @@ abstract class Logger {
 
     const colors: ServiceLogColor = {
       [Service.GAME_ENGINE]: '#daa555',
-      [Service.DRAWN_ENGINE_MANAGER]: '#da7455',
+      [Service.ASSETS_ENGINE]: '#6dda55',
       [Service.CANVAS_LOADER]: '#7b55da',
-      [Service.CANVAS_CONTEXT_LOADER]: '#ae55da',
       [Service.CANVAS_STRATEGY]: '#55dab0',
+      [Service.DRAWN_ENGINE_MANAGER]: '#da7455',
+      [Service.CANVAS_CONTEXT_LOADER]: '#ae55da',
     };
 
     const color = colors[service];
