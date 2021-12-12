@@ -15,11 +15,12 @@
     ],
     "baseUrl": ".",
     "paths": {
-      "@engines": ["src/game/engines/index"],
-      "@errors": ["src/game/errors/index"],
-      "@handler": ["src/game/handlers/index"],
-      "@logger": ["src/game/logger/index"],
       "@settings": ["src/settings/index"],
+      "@errors": ["src/game/errors/index"],
+      "@logger": ["src/game/logger/index"],
+      "@engines": ["src/game/engines/index"],
+      "@handler": ["src/game/handlers/index"],
+      "@components": ["src/game/components/index"],
     }
   },
 }

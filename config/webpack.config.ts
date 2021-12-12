@@ -16,6 +16,7 @@ const config: Configuration = {
       '@handlers': path.resolve(__dirname, '..', 'src', 'game', 'handlers'),
       '@logger': path.resolve(__dirname, '..', 'src', 'game', 'logger'),
       '@settings': path.resolve(__dirname, '..', 'src', 'settings'),
+      '@components': path.resolve(__dirname, '..', 'src', 'game', 'components'),
     },
     extensions: ['.ts', '.js'],
   },
