@@ -42,7 +42,7 @@ class GameEngine {
 
     Logger.info(
       Service.GAME_ENGINE,
-      `All dependencies has been loaded successfully! Ready to use it!`,
+      `All dependencies have been loaded successfully! Ready to use it!`,
     );
   };
 }

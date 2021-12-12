@@ -16,7 +16,7 @@ abstract class CanvasContextLoader {
   ): CanvasRenderingContext2D => {
     Logger.info(
       Service.CANVAS_CONTEXT_LOADER,
-      `Tying to load the canvas context...`,
+      `Trying to load the canvas context...`,
     );
 
     const context = canvas.getContext('2d');
