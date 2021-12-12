@@ -1,8 +1,4 @@
-import {
-  UnableToLoadDrawingEngine,
-  UnableToLoadStrategy,
-  UnableToGetCanvasContext,
-} from '@errors';
+import { UnableToLoadDrawingEngine, UnableToLoadStrategy } from '@errors';
 import { Logger, Service } from '@logger';
 import Canvas from './strategies/Canvas/Canvas';
 
