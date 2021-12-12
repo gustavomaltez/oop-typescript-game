@@ -73,20 +73,6 @@ export interface IAssetsSettings {
   sprites: ISpriteAssetEntry[];
 
   /**
-   * Sometimes some assets could not be loaded correctly, this value indicates the
-   * percentage of assets loaded should be safe to start the game.
-   *
-   * e.g: 0.8: If more than 20% of all assets could not be loaded will throw an
-   * error.
-   *
-   * It's recommended always use values greater than 0.9 to always make sure to
-   * load all assets.
-   *
-   * MUST BE A NUMBER BETWEEN 0 and 1.
-   */
-  acceptableLoadPercentage: number;
-
-  /**
    * The number of times to try to load some asset.
    *
    * It's recommended use values lesser than 5, to do not take so much time to

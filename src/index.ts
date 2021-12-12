@@ -46,7 +46,6 @@ window.onload = async () => {
       },
     ],
     loadingRounds: 3,
-    acceptableLoadPercentage: 0.95,
   };
 
   const assetsEngine = new AssetsEngine(assetsSettings);
