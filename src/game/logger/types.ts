@@ -8,3 +8,8 @@ export enum Service {
   CANVAS_CONTEXT_LOADER = "canvasContextLoader",
   CANVAS_STRATEGY = "canvasStrategy",
 }
+
+export type ServiceLogColor = {
+  [key in Service]: string;
+}
+

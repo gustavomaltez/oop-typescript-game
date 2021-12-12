@@ -1,6 +1,6 @@
 import DrawingEngineManager from "./DrawingEngine/DrawingEngineManager";
 import GameEngine from "./GameEngine";
-import { IDrawingEngine, Strategy, StrategyMap } from './DrawingEngine/types';
+import { IDrawingEngine, Strategy } from './DrawingEngine/types';
 
 export {
   Strategy,
@@ -10,5 +10,4 @@ export {
 
 export type {
   IDrawingEngine,
-  StrategyMap,
 }

@@ -1,7 +1,11 @@
 import Logger from "./Logger"
-import { Service } from "./types"
+import { Service, ServiceLogColor } from "./types"
 
 export {
   Logger,
   Service
+}
+
+export type {
+  ServiceLogColor
 }

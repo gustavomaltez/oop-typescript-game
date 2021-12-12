@@ -15,10 +15,3 @@ export interface IDrawingEngine {
 
   context: CanvasRenderingContext2D;
 }
-
-/**
- * Represents the strategy map used to load some drawing engine.
- */
-export type StrategyMap = {
-  [key in Strategy]: IDrawingEngine;
-}

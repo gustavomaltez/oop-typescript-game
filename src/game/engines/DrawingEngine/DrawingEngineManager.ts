@@ -2,7 +2,7 @@ import { UnableToLoadDrawingEngine, UnableToLoadStrategy } from "@errors";
 import { Logger, Service } from "@logger";
 import Canvas from "./strategies/Canvas/Canvas";
 
-import { IDrawingEngine, Strategy, StrategyMap } from "./types";
+import { IDrawingEngine, Strategy } from "./types";
 
 /**
  * An abstraction to load the actual drawing engine instance.
