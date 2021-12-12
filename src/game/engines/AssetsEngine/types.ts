@@ -5,14 +5,14 @@ interface IBaseAssetEntry {
   /**
    * Asset id (it will be used to get this asset later)
    */
-  id: string;
+  readonly id: string;
 
   /**
    * Asset path. It should be the asset path inside assets folder.
    *
    * e.g: './assets/textures/my_texture.png'
    */
-  path: string;
+  readonly path: string;
 }
 
 /**
@@ -27,7 +27,7 @@ export interface ILoadedAudioAssetEntry extends IAudioAssetEntry {
   /**
    * The audio data loaded into an HTML Audio Element.
    */
-  data: HTMLAudioElement;
+  readonly data: HTMLAudioElement;
 }
 
 /**
@@ -40,14 +40,22 @@ export interface ISpriteAssetEntry extends IBaseAssetEntry {
    * NOTE: All sprites are squared (it means w = spriteSize and h = spriteSize).
    * IMPORTANT: All sprites must be in a single row, due the architecture choices.
    */
-  spriteSize: number;
+  readonly spriteSize: number;
 
   /**
    * How many sprites are contained in this asset.
    *
    * NOTE: If it's a single sprite use: "SINGLE_SPRITE"
    */
-  spriteCount: number | 'SINGLE_SPRITE';
+  readonly spriteCount: number | 'SINGLE_SPRITE';
+
+  /**
+   * Animation time in milliseconds.
+   *
+   * NOTE: If you don't want to use animations use "FREEZED" it will keep the
+   * sprite freezed on the first sprite image
+   */
+  readonly animationTime: number | 'FREEZED';
 }
 
 /**
@@ -57,7 +65,7 @@ export interface ILoadedSpriteAssetEntry extends ISpriteAssetEntry {
   /**
    * The sprite data loaded into an HTML Image Element.
    */
-  data: HTMLImageElement;
+  readonly data: HTMLImageElement;
 }
 
 /**
@@ -67,12 +75,12 @@ export interface IAssetsSettings {
   /**
    * List of audio assets.
    */
-  audios: IAudioAssetEntry[];
+  readonly audios: IAudioAssetEntry[];
 
   /**
    * List of sprites assets.
    */
-  sprites: ISpriteAssetEntry[];
+  readonly sprites: ISpriteAssetEntry[];
 
   /**
    * The number of times to try to load some asset.
@@ -80,7 +88,7 @@ export interface IAssetsSettings {
    * It's recommended use values lesser than 5, to do not take so much time to
    * load all assets.
    */
-  loadingRounds: number;
+  readonly loadingRounds: number;
 }
 
 /**
