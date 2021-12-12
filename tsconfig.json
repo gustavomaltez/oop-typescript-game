@@ -19,6 +19,7 @@
       "@errors": ["src/game/errors/index"],
       "@handler": ["src/game/handlers/index"],
       "@logger": ["src/game/logger/index"],
+      "@settings": ["src/settings/index"],
     }
   },
 }

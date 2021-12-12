@@ -44,8 +44,10 @@ export interface ISpriteAssetEntry extends IBaseAssetEntry {
 
   /**
    * How many sprites are contained in this asset.
+   *
+   * NOTE: If it's a single sprite use: "SINGLE_SPRITE"
    */
-  spriteCount: number;
+  spriteCount: number | 'SINGLE_SPRITE';
 }
 
 /**
