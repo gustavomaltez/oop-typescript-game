@@ -12,6 +12,5 @@ export enum Strategy {
  * Represents a basic drawing engine, all strategies should follow this interface.
  */
 export interface IDrawingEngine {
-
   context: CanvasRenderingContext2D;
 }

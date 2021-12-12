@@ -1,4 +1,4 @@
-import { IDrawingEngine } from "@engines";
+import { IDrawingEngine } from '@engines';
 
 /**
  * Represents a base game engine

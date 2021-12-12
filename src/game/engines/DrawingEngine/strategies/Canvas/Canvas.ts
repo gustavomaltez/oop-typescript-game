@@ -1,5 +1,3 @@
-import { UnableToGetCanvasContext, UnableToLoadCanvas } from '@errors';
-import { Logger, Service } from '@logger';
 import { IDrawingEngine } from '@engines';
 import CanvasLoader from './CanvasLoader';
 import CanvasContextLoader from './CanvasContextLoader';
@@ -8,7 +6,6 @@ import CanvasContextLoader from './CanvasContextLoader';
  * Strategy to drawn things on screen using the default canvas API
  */
 class Canvas implements IDrawingEngine {
-
   public context: CanvasRenderingContext2D;
 
   constructor() {
@@ -16,8 +13,6 @@ class Canvas implements IDrawingEngine {
     const context = CanvasContextLoader.getContext(canvas);
     this.context = context;
   }
-
-
 }
 
 export default Canvas;

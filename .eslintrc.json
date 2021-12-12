@@ -32,14 +32,19 @@
       "error"
     ],
     "import/extensions": [
+      "error",
+      "ignorePackages",
       {
+        "js": "never",
         "ts": "never"
       }
-    ]
+   ]
   },
   "settings": {
     "import/resolver": {
-      "typescript": {}
+      "node": {
+        "extensions": [".js",".ts"]
+      }
     }
   }
 }

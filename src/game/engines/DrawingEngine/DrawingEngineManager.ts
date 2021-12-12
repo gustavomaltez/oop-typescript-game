@@ -1,8 +1,12 @@
-import { UnableToLoadDrawingEngine, UnableToLoadStrategy } from "@errors";
-import { Logger, Service } from "@logger";
-import Canvas from "./strategies/Canvas/Canvas";
+import {
+  UnableToLoadDrawingEngine,
+  UnableToLoadStrategy,
+  UnableToGetCanvasContext,
+} from '@errors';
+import { Logger, Service } from '@logger';
+import Canvas from './strategies/Canvas/Canvas';
 
-import { IDrawingEngine, Strategy } from "./types";
+import { IDrawingEngine, Strategy } from './types';
 
 /**
  * An abstraction to load the actual drawing engine instance.
@@ -23,11 +27,10 @@ class DrawingEngineManager {
    * @returns {IDrawingEngine} A drawn engine.
    */
   public loadEngine = (): IDrawingEngine => {
-
     if (this.isEngineLoaded) {
       Logger.error(
         Service.DRAWN_ENGINE_MANAGER,
-        `Unable to load the current engine!`
+        `Unable to load the current engine!`,
       );
       throw new UnableToLoadDrawingEngine('No engine was found');
     }
@@ -39,18 +42,18 @@ class DrawingEngineManager {
 
     const isValid = this.validateStrategy(this.strategyId);
 
-    if (isValid)
-      this.isEngineLoaded = true;
+    if (isValid) this.isEngineLoaded = true;
 
-    if (this.strategyId === Strategy.CANVAS)
-      return new Canvas();
+    if (this.strategyId === Strategy.CANVAS) return new Canvas();
 
     if (this.strategyId !== Strategy.CANVAS) {
       return new Canvas();
     }
     throw new UnableToLoadStrategy(`
-      The strategy with "${this.strategyId}" is not valid. Please use a valid strategy id.
-      Valid strategy ids: ${Object.keys(Strategy).join(", ")}.
+      The strategy with "${
+        this.strategyId
+      }" is not valid. Please use a valid strategy id.
+      Valid strategy ids: ${Object.keys(Strategy).join(', ')}.
     `);
   };
 
@@ -65,7 +68,7 @@ class DrawingEngineManager {
     const isValid = validStrategies.includes(strategyId);
 
     return isValid;
-  }
+  };
 }
 
 export default DrawingEngineManager;
