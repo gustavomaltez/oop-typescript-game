@@ -1,6 +1,6 @@
 import { UnableToLoadDrawingEngine, UnableToLoadStrategy } from '@errors';
 import { Logger, Service } from '@logger';
-import Canvas from './strategies/Canvas/Canvas';
+import { Canvas } from '@engines';
 
 import { IDrawingEngine, Strategy } from './types';
 
@@ -41,8 +41,6 @@ class DrawingEngineManager {
     if (isValid) this.isEngineLoaded = true;
 
     if (this.strategyId === Strategy.CANVAS) return new Canvas();
-
-    if (this.strategyId !== Strategy.CANVAS) return new Canvas();
 
     throw new UnableToLoadStrategy(`
       The strategy with "${

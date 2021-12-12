@@ -43,7 +43,7 @@ export interface IGameSettings {
    * // Rendered sprite size = 16
    *
    * // Scale = 2
-   * // Sprite size = 32
+   * // Sprite size = 16
    * // Rendered sprite size = 32
    */
   scale: number;

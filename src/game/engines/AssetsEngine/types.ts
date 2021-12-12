@@ -38,7 +38,7 @@ export interface ISpriteAssetEntry extends IBaseAssetEntry {
    * The sprite dimensions
    *
    * NOTE: All sprites are squared (it means w = spriteSize and h = spriteSize).
-   * IMPORTANT: All sprites should be in a single row, due the architecture choices.
+   * IMPORTANT: All sprites must be in a single row, due the architecture choices.
    */
   spriteSize: number;
 
@@ -68,7 +68,7 @@ export interface IAssetsSettings {
   audios: IAudioAssetEntry[];
 
   /**
-   * List of image assets.
+   * List of sprites assets.
    */
   sprites: ISpriteAssetEntry[];
 

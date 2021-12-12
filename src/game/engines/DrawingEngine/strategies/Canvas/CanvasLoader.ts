@@ -21,7 +21,14 @@ abstract class CanvasLoader {
 
     const canvasElement = document.querySelector('canvas');
 
-    if (canvasElement) return canvasElement;
+    if (canvasElement) {
+      Logger.info(
+        Service.CANVAS_LOADER,
+        `A canvas element was found on DOM! Ready to use it!`,
+      );
+
+      return canvasElement;
+    }
 
     Logger.info(
       Service.CANVAS_LOADER,

@@ -34,8 +34,8 @@ class Canvas implements IDrawingEngine {
 
     const scaledSpriteSize = spriteSize * scale;
 
-    this.canvas.width = rows * scaledSpriteSize;
-    this.canvas.height = columns * scaledSpriteSize;
+    this.canvas.width = columns * scaledSpriteSize;
+    this.canvas.height = rows * scaledSpriteSize;
 
     // TODO: Make it configurable
     this.canvas.style.outline = '1px solid red';
