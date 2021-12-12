@@ -1,60 +1,30 @@
 import { UnableToLoadDrawingEngine, UnableToLoadStrategy } from "@errors";
 import { Logger, Service } from "@logger";
 import Canvas from "./strategies/Canvas/Canvas";
+
 import { IDrawingEngine, Strategy, StrategyMap } from "./types";
 
 /**
  * An abstraction to load the actual drawing engine instance.
  */
 class DrawingEngineManager {
-  private engine: IDrawingEngine;
+  private strategyId: Strategy;
 
-  private isLoaded = false;
+  private isEngineLoaded: boolean;
 
   constructor(strategyId: Strategy) {
-    Logger.info(
-      Service.DRAWN_ENGINE_MANAGER,
-      `Setting up a canvas engine with strategy id: "${strategyId}"`,
-    );
-    this.engine = this.getEngine(strategyId);
+    this.strategyId = strategyId;
+    this.isEngineLoaded = false;
   }
 
   /**
-   * Searches on strategies map for an strategy and returns it.
+   * Loads the provided strategy provided on current class constructor.
    *
-   * @param {Strategy} strategyId The strategy id to be loaded.
-   * @returns {IDrawingEngine} A drawing engine.
+   * @returns {IDrawingEngine} A drawn engine.
    */
-  private getEngine = (strategyId: Strategy): IDrawingEngine => {
-    const strategiesMap: StrategyMap = {
-      [Strategy.CANVAS]: new Canvas(),
-    };
+  public loadEngine = (): IDrawingEngine => {
 
-    const strategy = strategiesMap[strategyId];
-
-    if (!strategy) {
-      Logger.error(
-        Service.DRAWN_ENGINE_MANAGER,
-        `No strategy was found with the provided id: "${strategyId}"`,
-      );
-      throw new UnableToLoadStrategy(`
-        The strategy with "${strategyId}" was not found on strategyMap. Please use a valid strategy id.
-      `);
-    }
-
-    return strategy;
-  };
-
-  /**
-   * Loads the current engine and returns the loaded engine
-   */
-  public loadEngine = async (): Promise<IDrawingEngine> => {
-    Logger.info(
-      Service.DRAWN_ENGINE_MANAGER,
-      `Trying to load the current engine...`
-    );
-
-    if (!this.engine) {
+    if (this.isEngineLoaded) {
       Logger.error(
         Service.DRAWN_ENGINE_MANAGER,
         `Unable to load the current engine!`
@@ -62,24 +32,40 @@ class DrawingEngineManager {
       throw new UnableToLoadDrawingEngine('No engine was found');
     }
 
-    if (this.isLoaded) {
-      Logger.error(
-        Service.DRAWN_ENGINE_MANAGER,
-        `The current engine is already loaded!`
-      );
-      throw new UnableToLoadDrawingEngine('Unable to load two engines at same time');
-    }
-
-    await this.engine.load();
-
-    this.isLoaded = true;
-
     Logger.info(
       Service.DRAWN_ENGINE_MANAGER,
-      `Engine loaded successfully! Ready to use it!`
+      `Setting up a canvas engine with strategy id: "${this.strategyId}"`,
     );
-    return Promise.resolve(this.engine);
+
+    const isValid = this.validateStrategy(this.strategyId);
+
+    if (isValid)
+      this.isEngineLoaded = true;
+
+    if (this.strategyId === Strategy.CANVAS)
+      return new Canvas();
+
+    if (this.strategyId !== Strategy.CANVAS) {
+      return new Canvas();
+    }
+    throw new UnableToLoadStrategy(`
+      The strategy with "${this.strategyId}" is not valid. Please use a valid strategy id.
+      Valid strategy ids: ${Object.keys(Strategy).join(", ")}.
+    `);
   };
+
+  /**
+   * Validates if the strategy is valid.
+   *
+   * @param {Strategy} strategyId The strategy id to be validated.
+   * @returns {boolean} Whether is a valid strategy.
+   */
+  private validateStrategy = (strategyId: Strategy): boolean => {
+    const validStrategies = Object.values(Strategy);
+    const isValid = validStrategies.includes(strategyId);
+
+    return isValid;
+  }
 }
 
 export default DrawingEngineManager;

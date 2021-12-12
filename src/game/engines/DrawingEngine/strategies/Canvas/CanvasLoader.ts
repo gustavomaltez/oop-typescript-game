@@ -42,17 +42,11 @@ abstract class CanvasLoader {
    * @param {HTMLCanvasElement} canvas Custom canvas to be inserted into body.
    */
   private static attachCustomCanvasOnBody = (canvas: HTMLCanvasElement) => {
-    Logger.info(
-      Service.CANVAS_LOADER,
-      `Searching for document body...`
-    );
+    Logger.info(Service.CANVAS_LOADER,`Searching for document body...`);
     const body = document.querySelector('body');
 
     if (!body) {
-      Logger.error(
-        Service.CANVAS_LOADER,
-        `No document body were found!`
-      );
+      Logger.error(Service.CANVAS_LOADER,`No document body were found!`);
       throw new UnableToLoadCanvas("Document body wasn't found");
     }
 

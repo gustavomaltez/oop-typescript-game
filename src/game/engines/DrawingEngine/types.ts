@@ -13,10 +13,7 @@ export enum Strategy {
  */
 export interface IDrawingEngine {
 
-  /**
-   * Loads the current engine
-   */
-  load: () => Promise<void>;
+  context: CanvasRenderingContext2D;
 }
 
 /**
