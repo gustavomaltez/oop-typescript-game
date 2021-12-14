@@ -9,6 +9,7 @@ import {
   IAssetsData,
   IAssetsSettings,
   IAudioAssetEntry,
+  ISpriteDimensions,
   ISpriteAssetEntry,
   ILoadedAudioAssetEntry,
   ILoadedSpriteAssetEntry,
@@ -24,6 +25,7 @@ export type {
   IAssetsSettings,
   IAudioAssetEntry,
   ISpriteAssetEntry,
+  ISpriteDimensions,
   ILoadedAudioAssetEntry,
   ILoadedSpriteAssetEntry,
 };

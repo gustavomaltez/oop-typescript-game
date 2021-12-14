@@ -6,7 +6,7 @@ const gameSettings: IGameSettings = {
     rows: 20,
   },
   scale: 2,
-  spriteSize: 16,
+  blockSize: 16,
 };
 
 export { gameSettings };

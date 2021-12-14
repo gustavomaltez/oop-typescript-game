@@ -30,12 +30,12 @@ class Canvas implements IDrawingEngine {
     );
 
     const { columns, rows } = gameSettings.canvasSize;
-    const { scale, spriteSize } = gameSettings;
+    const { scale, blockSize } = gameSettings;
 
-    const scaledSpriteSize = spriteSize * scale;
+    const scaledBlockSize = blockSize * scale;
 
-    this.canvas.width = columns * scaledSpriteSize;
-    this.canvas.height = rows * scaledSpriteSize;
+    this.canvas.width = columns * scaledBlockSize;
+    this.canvas.height = rows * scaledBlockSize;
     this.context.imageSmoothingEnabled = false;
 
     // TODO: Make it configurable

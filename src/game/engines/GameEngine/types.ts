@@ -26,16 +26,12 @@ export interface IGameSettings {
   canvasSize: ICanvasSize;
 
   /**
-   * Represents the sprite size
-   *
-   * - NOTE: all sprite will use the same size for width and height, all the map
-   * components will use the same size too.
-   * - IMPORTANT: Make sure to use all textures with the same sprite size
+   * The size of each block of
    */
-  spriteSize: number;
+  blockSize: number;
 
   /**
-   * The scale value to apply to all game sprites.
+   * The value to scale all visual components (images, blocks, etc).
    *
    * @example
    * // Scale = 1

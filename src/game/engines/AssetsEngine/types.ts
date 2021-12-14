@@ -31,16 +31,30 @@ export interface ILoadedAudioAssetEntry extends IAudioAssetEntry {
 }
 
 /**
+ * Represent a 2d sprite dimensions.
+ */
+export interface ISpriteDimensions {
+  /**
+   * The width of each image in a sprite file.
+   */
+  readonly width: number;
+
+  /**
+   * The height of each image in a sprite file.
+   */
+  readonly height: number;
+}
+
+/**
  * Represents a sprite asset entry.
  */
 export interface ISpriteAssetEntry extends IBaseAssetEntry {
   /**
    * The sprite dimensions
    *
-   * NOTE: All sprites are squared (it means w = spriteSize and h = spriteSize).
    * IMPORTANT: All sprites must be in a single row, due the architecture choices.
    */
-  readonly spriteSize: number;
+  readonly spriteDimensions: ISpriteDimensions;
 
   /**
    * How many sprites are contained in this asset.
