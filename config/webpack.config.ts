@@ -11,12 +11,41 @@ const config: Configuration = {
   target: 'web',
   resolve: {
     alias: {
-      '@engines': path.resolve(__dirname, '..', 'src', 'game', 'engines'),
-      '@errors': path.resolve(__dirname, '..', 'src', 'game', 'errors'),
-      '@handlers': path.resolve(__dirname, '..', 'src', 'game', 'handlers'),
-      '@logger': path.resolve(__dirname, '..', 'src', 'game', 'logger'),
-      '@settings': path.resolve(__dirname, '..', 'src', 'settings'),
-      '@components': path.resolve(__dirname, '..', 'src', 'game', 'components'),
+      '@byte-eight-engine/engines': path.resolve(
+        __dirname,
+        '..',
+        'src',
+        'ByteEightEngine',
+        'engines',
+      ),
+      '@byte-eight-engine/gears': path.resolve(
+        __dirname,
+        '..',
+        'src',
+        'ByteEightEngine',
+        'gears',
+      ),
+      '@byte-eight-engine/errors': path.resolve(
+        __dirname,
+        '..',
+        'src',
+        'ByteEightEngine',
+        'errors',
+      ),
+      '@byte-eight-engine/logger': path.resolve(
+        __dirname,
+        '..',
+        'src',
+        'ByteEightEngine',
+        'logger',
+      ),
+      '@game/settings': path.resolve(
+        __dirname,
+        '..',
+        'src',
+        'game',
+        'settings',
+      ),
     },
     extensions: ['.ts', '.js'],
   },
@@ -29,19 +58,19 @@ const config: Configuration = {
     ],
   },
   devtool: 'inline-source-map',
-  entry: path.resolve(__dirname, '..', 'src', 'index.ts'),
+  entry: path.resolve(__dirname, '..', 'src', 'game', 'index.ts'),
   output: {
     filename: 'bundle.js',
     path: path.resolve(__dirname, '..', 'dist'),
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, '..', 'src', 'index.html'),
+      template: path.resolve(__dirname, '..', 'src', 'game', 'index.html'),
     }),
     new CopyWebpackPlugin({
       patterns: [
         {
-          from: path.resolve(__dirname, '..', 'src', 'assets'),
+          from: path.resolve(__dirname, '..', 'src', 'game', 'assets'),
           to: 'assets',
         },
       ],

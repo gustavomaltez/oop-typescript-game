@@ -1,4 +1,4 @@
-import { ILoadedSpriteAssetEntry } from '@engines';
+import { ILoadedSpriteAssetEntry } from '@byte-eight-engine/engines';
 import { ISpriteFramePosition } from './types';
 
 /**

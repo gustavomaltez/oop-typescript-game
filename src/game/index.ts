@@ -3,8 +3,8 @@ import {
   DrawingEngineManager,
   GameEngine,
   Strategy,
-} from '@engines';
-import { assetsSettings, gameSettings } from '@settings';
+} from '@byte-eight-engine/engines';
+import { assetsSettings, gameSettings } from '@game/settings';
 
 /**
  * Code to be executed once the browser loads

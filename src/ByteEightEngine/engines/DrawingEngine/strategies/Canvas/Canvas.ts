@@ -1,5 +1,5 @@
-import { IDrawingEngine, IGameSettings } from '@engines';
-import { Logger, Service } from '@logger';
+import { IDrawingEngine, IGameSettings } from '@byte-eight-engine/engines';
+import { Logger, Service } from '@byte-eight-engine/logger';
 import CanvasLoader from './CanvasLoader';
 import CanvasContextLoader from './CanvasContextLoader';
 

@@ -1,6 +1,6 @@
-import { AssetsEngine, IDrawingEngine } from '@engines';
-import { UnableToLoadGame } from '@errors';
-import { Logger, Service } from '@logger';
+import { AssetsEngine, IDrawingEngine } from '@byte-eight-engine/engines';
+import { UnableToLoadGame } from '@byte-eight-engine/errors';
+import { Logger, Service } from '@byte-eight-engine/logger';
 import { IGameSettings } from './types';
 
 /**

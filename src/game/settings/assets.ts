@@ -1,4 +1,8 @@
-import { IAssetsSettings, IAudioAssetEntry, ISpriteAssetEntry } from '@engines';
+import {
+  IAssetsSettings,
+  IAudioAssetEntry,
+  ISpriteAssetEntry,
+} from '@byte-eight-engine/engines';
 import { DefaultPlayerPosition, Misc, SkeletonEnemyPositions } from './ids';
 
 // Audios ----------------------------------------------------------------------

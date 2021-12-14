@@ -1,5 +1,5 @@
-import { UnableToLoadCanvas } from '@errors';
-import { Logger, Service } from '@logger';
+import { UnableToLoadCanvas } from '@byte-eight-engine/errors';
+import { Logger, Service } from '@byte-eight-engine/logger';
 
 /**
  * Abstract class to handler canvas loading.

@@ -1,4 +1,4 @@
-import { IGameSettings } from '@engines';
+import { IGameSettings } from '@byte-eight-engine/engines';
 
 const gameSettings: IGameSettings = {
   canvasSize: {

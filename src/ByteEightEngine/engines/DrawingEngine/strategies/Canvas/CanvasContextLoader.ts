@@ -1,5 +1,5 @@
-import { UnableToGetCanvasContext } from '@errors';
-import { Logger, Service } from '@logger';
+import { UnableToGetCanvasContext } from '@byte-eight-engine/errors';
+import { Logger, Service } from '@byte-eight-engine/logger';
 
 /**
  * Abstraction to load the canvas context

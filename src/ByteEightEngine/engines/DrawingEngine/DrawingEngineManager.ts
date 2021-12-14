@@ -1,6 +1,9 @@
-import { UnableToLoadDrawingEngine, UnableToLoadStrategy } from '@errors';
-import { Logger, Service } from '@logger';
-import { Canvas } from '@engines';
+import {
+  UnableToLoadDrawingEngine,
+  UnableToLoadStrategy,
+} from '@byte-eight-engine/errors';
+import { Logger, Service } from '@byte-eight-engine/logger';
+import { Canvas } from '@byte-eight-engine/engines';
 
 import { IDrawingEngine, Strategy } from './types';
 

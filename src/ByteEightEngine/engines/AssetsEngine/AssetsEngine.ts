@@ -1,5 +1,5 @@
-import { UnableToLoadAssets } from '@errors';
-import { Logger, Service } from '@logger';
+import { UnableToLoadAssets } from '@byte-eight-engine/errors';
+import { Logger, Service } from '@byte-eight-engine/logger';
 import {
   IAssetsData,
   IAssetsSettings,
@@ -55,7 +55,7 @@ class AssetsEngine {
     Logger.info(Service.ASSETS_ENGINE, `Finished audio assets loading!`);
   };
 
-  private loadAudio = () => {};
+  private loadAudio = () => null;
 
   /**
    * Loads all image assets.

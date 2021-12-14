@@ -15,12 +15,11 @@
     ],
     "baseUrl": ".",
     "paths": {
-      "@settings": ["src/settings/index"],
-      "@errors": ["src/game/errors/index"],
-      "@logger": ["src/game/logger/index"],
-      "@engines": ["src/game/engines/index"],
-      "@handler": ["src/game/handlers/index"],
-      "@components": ["src/game/components/index"],
+      "@byte-eight-engine/engines": ["src/ByteEightEngine/engines/index"],
+      "@byte-eight-engine/gears": ["src/ByteEightEngine/gears/index"],
+      "@byte-eight-engine/errors": ["src/ByteEightEngine/errors/index"],
+      "@byte-eight-engine/logger": ["src/ByteEightEngine/logger/index"],
+      "@game/settings": ["src/game/settings/index"],
     }
   },
 }
