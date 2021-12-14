@@ -36,6 +36,7 @@ class Canvas implements IDrawingEngine {
 
     this.canvas.width = columns * scaledSpriteSize;
     this.canvas.height = rows * scaledSpriteSize;
+    this.context.imageSmoothingEnabled = false;
 
     // TODO: Make it configurable
     this.canvas.style.outline = '1px solid red';
