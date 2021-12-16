@@ -44,4 +44,5 @@ export enum Misc {
   HEART = 'heart',
   ROCK = 'rock',
   TREE_TRUNK = 'treeTrunk',
+  BIG_TREE = 'bigTree',
 }
