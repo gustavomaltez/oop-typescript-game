@@ -5,7 +5,7 @@ import { ISpriteFramePosition } from './types';
  * Represents a single sprite
  */
 class Sprite {
-  private data: ILoadedSpriteAssetEntry;
+  public data: ILoadedSpriteAssetEntry;
 
   private lastUpdate: number;
 
@@ -46,15 +46,18 @@ class Sprite {
    * @returns {ISpriteFramePosition[]} List of frames positions for this sprite.
    */
   private buildSpriteFramesList = (): ISpriteFramePosition[] => {
-    const { spriteCount, spriteSize } = this.data;
+    const { spriteCount, spriteDimensions } = this.data;
+    const { height, width } = spriteDimensions;
 
     const frames: ISpriteFramePosition[] = [];
 
-    for (let i = 0; i < spriteCount; i += 1) {
+    const totalSprites = spriteCount === 'SINGLE_SPRITE' ? 1 : spriteCount;
+
+    for (let i = 0; i < totalSprites; i += 1) {
       const currentFrame: ISpriteFramePosition = {
-        height: spriteSize,
-        width: spriteSize,
-        sourceX: spriteSize * i,
+        height,
+        width,
+        sourceX: width * i,
         sourceY: 0,
       };
 
