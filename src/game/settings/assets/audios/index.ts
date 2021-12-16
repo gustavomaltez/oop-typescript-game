@@ -1,8 +1,10 @@
-import { ISpriteAssetEntry } from '@byte-eight-engine/engines';
+import { IAudioAssetEntry } from '@byte-eight-engine/engines';
+import gameSongs from './songs';
+import gameSoundEffects from './sounds';
 
 /**
  * Represents all audios that will be available during the game.
  */
-const audiosSettings: ISpriteAssetEntry[] = [];
+const audiosSettings: IAudioAssetEntry[] = [...gameSongs, ...gameSoundEffects];
 
 export default audiosSettings;
