@@ -7,7 +7,7 @@
     "noEmit": true,
     "allowJs": false,
     "skipLibCheck": true,
-    "isolatedModules": false,
+    "isolatedModules": true,
     "esModuleInterop": true,
     "sourceMap": true,
     "typeRoots": [
