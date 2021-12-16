@@ -16,9 +16,13 @@ class SpriteLoader {
 
   /**
    * Loads all provided sprites.
+   *
+   * @returns {ILoadedSpriteAssetEntry[]} A list with all loaded sprites.
    */
   public loadAll = async (): Promise<ILoadedSpriteAssetEntry[]> => {
     Logger.info(Service.ASSETS_ENGINE, `Loading sprites assets...`);
+
+    if (this.spritesToLoad.length === 0) return Promise.resolve([]);
 
     const loadingPromise = new Promise<ILoadedSpriteAssetEntry[]>(resolve => {
       const loadedSprites: ILoadedSpriteAssetEntry[] = [];
