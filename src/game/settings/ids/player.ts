@@ -1,7 +1,7 @@
 /**
  * Represents all player sprite positions.
  */
-enum DefaultPlayerPosition {
+export enum DefaultPlayerPosition {
   IDLE_LEFT = 'defaultPlayerIdleLeft',
   IDLE_RIGHT = 'defaultPlayerIRight',
   IDLE_UP = 'defaultPlayerIUp',
@@ -17,5 +17,3 @@ enum DefaultPlayerPosition {
   ATTACK_UP = 'defaultPlayerAttackUp',
   ATTACK_DOWN = 'defaultPlayerAttackDown',
 }
-
-export { DefaultPlayerPosition };

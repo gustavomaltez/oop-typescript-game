@@ -1,7 +1,7 @@
 /**
  * Represents all enemy sprite positions.
  */
-enum SkeletonEnemyPositions {
+export enum SkeletonEnemyPositions {
   IDLE_LEFT = 'skeletonEnemyIdleLeft',
   IDLE_RIGHT = 'skeletonEnemyIdleRight',
   IDLE_UP = 'skeletonEnemyIdleUp',
@@ -12,5 +12,3 @@ enum SkeletonEnemyPositions {
   WALK_UP = 'skeletonEnemyWalkUp',
   WALK_DOWN = 'skeletonEnemyWalkDown',
 }
-
-export { SkeletonEnemyPositions };

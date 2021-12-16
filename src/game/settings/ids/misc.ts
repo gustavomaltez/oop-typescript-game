@@ -1,7 +1,7 @@
 /**
  * Represents all misc assets ids.
  */
-enum Misc {
+export enum Misc {
   CHEST = 'chest',
   BUSH = 'bush',
   COIN = 'coin',
@@ -11,5 +11,3 @@ enum Misc {
   TREE_TRUNK = 'treeTrunk',
   BIG_TREE = 'bigTree',
 }
-
-export { Misc };
