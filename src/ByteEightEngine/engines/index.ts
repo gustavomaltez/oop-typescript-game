@@ -15,7 +15,16 @@ import {
   ILoadedSpriteAssetEntry,
 } from './AssetsEngine/types';
 
-export { Canvas, Strategy, GameEngine, AssetsEngine, DrawingEngineManager };
+import InputEngine from './InputEngine/InputEngine';
+
+export {
+  Canvas,
+  Strategy,
+  GameEngine,
+  InputEngine,
+  AssetsEngine,
+  DrawingEngineManager,
+};
 
 export type {
   IAssetsData,

@@ -18,4 +18,9 @@ export interface ISpriteFramePosition {
    * Sprite width
    */
   width: number;
+
+  /**
+   * The HTML image elements that contains the loaded sprite.
+   */
+  image: HTMLImageElement;
 }

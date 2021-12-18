@@ -2,7 +2,7 @@ import { UnableToLoadAssets } from '@byte-eight-engine/errors';
 import { Logger, Service } from '@byte-eight-engine/logger';
 import AudioLoader from './AudioLoader';
 import SpriteLoader from './SpriteLoader';
-import { IAssetsData, IAssetsSettings } from './types';
+import { IAssetsData, IAssetsSettings, ILoadedSpriteAssetEntry } from './types';
 
 /**
  * Abstraction to load assets and makes it usable
@@ -54,6 +54,17 @@ class AssetsEngine {
       Service.ASSETS_ENGINE,
       `All assets have been successfully loaded! Ready to use it!`,
     );
+  };
+
+  public getSpriteById = (id: string): ILoadedSpriteAssetEntry => {
+    if (!this.isLoaded)
+      throw new Error("assets isn't loaded yet, please load it");
+
+    const sprite = this.assets.sprites.find(item => item.id === id);
+
+    if (!sprite) throw new Error(`Unable to find sprite with id ${id}`);
+
+    return sprite;
   };
 }
 

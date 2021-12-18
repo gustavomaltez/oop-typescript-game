@@ -19,7 +19,7 @@ class Sprite {
     this.data = data;
     this.lastUpdate = 0;
     this.currentFrameIndex = 0;
-    this.isFreezed = true;
+    this.isFreezed = false;
     this.frames = this.buildSpriteFramesList();
   }
 
@@ -102,6 +102,7 @@ class Sprite {
         width,
         sourceX: width * i,
         sourceY: 0,
+        image: this.data.data,
       };
 
       frames.push(currentFrame);

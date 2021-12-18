@@ -3,7 +3,7 @@ import {
   UnableToLoadStrategy,
 } from '@byte-eight-engine/errors';
 import { Logger, Service } from '@byte-eight-engine/logger';
-import { Canvas } from '@byte-eight-engine/engines';
+import { Canvas, IGameSettings } from '@byte-eight-engine/engines';
 
 import { IDrawingEngine, Strategy } from './types';
 
@@ -25,7 +25,7 @@ class DrawingEngineManager {
    *
    * @returns {IDrawingEngine} A drawn engine.
    */
-  public loadEngine = (): IDrawingEngine => {
+  public loadEngine = (gameSettings: IGameSettings): IDrawingEngine => {
     if (this.isEngineLoaded) {
       Logger.error(
         Service.DRAWN_ENGINE_MANAGER,
@@ -43,7 +43,7 @@ class DrawingEngineManager {
 
     if (isValid) this.isEngineLoaded = true;
 
-    if (this.strategyId === Strategy.CANVAS) return new Canvas();
+    if (this.strategyId === Strategy.CANVAS) return new Canvas(gameSettings);
 
     throw new UnableToLoadStrategy(`
       The strategy with "${

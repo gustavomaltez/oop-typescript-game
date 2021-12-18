@@ -1,6 +1,12 @@
-import { AssetsEngine, IDrawingEngine } from '@byte-eight-engine/engines';
+import {
+  AssetsEngine,
+  DrawingEngineManager,
+  IDrawingEngine,
+} from '@byte-eight-engine/engines';
 import { UnableToLoadGame } from '@byte-eight-engine/errors';
 import { Logger, Service } from '@byte-eight-engine/logger';
+
+import { Strategy } from '../DrawingEngine/types';
 import { IGameSettings } from './types';
 
 /**
@@ -11,19 +17,29 @@ class GameEngine {
 
   private isLoaded: boolean;
 
-  private drawnEngine: IDrawingEngine;
+  public drawnEngine: IDrawingEngine;
 
-  private assetsEngine: AssetsEngine;
+  public assetsEngine: AssetsEngine;
+
+  public gameLoop: () => void;
+
+  public gameUpdate: () => void;
 
   constructor(
-    drawnEngine: IDrawingEngine,
+    drawnEngineId: Strategy,
     assetsEngine: AssetsEngine,
     settings: IGameSettings,
   ) {
-    this.drawnEngine = drawnEngine;
     this.assetsEngine = assetsEngine;
     this.settings = settings;
     this.isLoaded = false;
+
+    const drawingEngineManager = new DrawingEngineManager(drawnEngineId);
+
+    this.drawnEngine = drawingEngineManager.loadEngine(this.settings);
+
+    this.gameLoop = () => {};
+    this.gameUpdate = () => {};
   }
 
   /**
@@ -43,7 +59,7 @@ class GameEngine {
       `Setting up all needed game dependencies...`,
     );
 
-    await this.drawnEngine.setupEngine(this.settings);
+    await this.drawnEngine.setupEngine();
     await this.assetsEngine.loadAllAssets();
 
     this.isLoaded = true;
@@ -52,6 +68,17 @@ class GameEngine {
       Service.GAME_ENGINE,
       `All dependencies have been loaded successfully! Ready to use it!`,
     );
+  };
+
+  private internalGameLoop = () => {
+    this.drawnEngine.clear();
+    this.gameUpdate();
+    this.gameLoop();
+    window.requestAnimationFrame(this.internalGameLoop);
+  };
+
+  public startGame = () => {
+    this.internalGameLoop();
   };
 }
 

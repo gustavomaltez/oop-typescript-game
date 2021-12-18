@@ -1,4 +1,4 @@
-import { IGameSettings } from '../GameEngine/types';
+import { ISpriteFramePosition } from 'src/ByteEightEngine/gears/Sprite/types';
 
 /**
  * Represents all available drawing engines
@@ -16,8 +16,22 @@ export enum Strategy {
 export interface IDrawingEngine {
   /**
    * Method to setup the drawing engine.
-   *
-   * @param {IGameSettings} gameSettings Current running game settings.
    */
-  setupEngine: (gameSettings: IGameSettings) => Promise<void>;
+  setupEngine: () => Promise<void>;
+
+  drawnSpriteOnCoordinates: (
+    sprite: ISpriteFramePosition,
+    x: number,
+    y: number,
+  ) => void;
+
+  drawnSpriteOnMapPositions: (
+    sprite: ISpriteFramePosition,
+    x: number,
+    y: number,
+  ) => void;
+
+  clear: () => void;
+
+  drawnLayers: () => void;
 }
