@@ -13,10 +13,13 @@ class Sprite {
 
   private currentFrameIndex: number;
 
+  private isFreezed: boolean;
+
   constructor(data: ILoadedSpriteAssetEntry) {
     this.data = data;
     this.lastUpdate = 0;
     this.currentFrameIndex = 0;
+    this.isFreezed = true;
     this.frames = this.buildSpriteFramesList();
   }
 
@@ -28,6 +31,8 @@ class Sprite {
   public getCurrentFramePosition = (): ISpriteFramePosition => {
     if (this.data.animationTime === 'FREEZED') return this.frames[0];
 
+    if (this.isFreezed) return this.frames[this.currentFrameIndex];
+
     if (Date.now() - this.lastUpdate >= this.data.animationTime) {
       this.currentFrameIndex += 1;
 
@@ -38,6 +43,24 @@ class Sprite {
     }
 
     return this.frames[this.currentFrameIndex];
+  };
+
+  /**
+   * Freezes the sprite at the current position.
+   *
+   * - Calling this method will make the animation stops at the current frame.
+   */
+  public freeze = () => {
+    this.isFreezed = true;
+  };
+
+  /**
+   * Unfreezes the sprite.
+   *
+   * - Calling this method will make the animation starts again.
+   */
+  public unfreeze = () => {
+    this.isFreezed = false;
   };
 
   /**
