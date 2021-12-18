@@ -24,11 +24,11 @@ class Sprite {
   }
 
   /**
-   * Returns the current sprite position based on sprite count and animation time.
+   * Returns the current frame data based on sprite count and animation time.
    *
-   * @returns {ISpriteFramePosition} Current sprite position.
+   * @returns {ISpriteFramePosition} Current frame data.
    */
-  public getCurrentFramePosition = (): ISpriteFramePosition => {
+  public getCurrentFrame = (): ISpriteFramePosition => {
     if (this.data.animationTime === 'FREEZED') return this.frames[0];
 
     if (this.isFreezed) return this.frames[this.currentFrameIndex];
@@ -61,6 +61,26 @@ class Sprite {
    */
   public unfreeze = () => {
     this.isFreezed = false;
+  };
+
+  /**
+   * Returns the first frame data.
+   *
+   * @returns {ISpriteFramePosition} First frame data.
+   */
+  public getFirstFrame = () => {
+    return this.frames[0];
+  };
+
+  /**
+   * Returns the last frame data.
+   *
+   * @returns {ISpriteFramePosition} Last frame data.
+   */
+  public getLastFrame = () => {
+    if (this.data.spriteCount === 'SINGLE_SPRITE') return this.getFirstFrame();
+
+    return this.frames[this.data.spriteCount - 1];
   };
 
   /**
