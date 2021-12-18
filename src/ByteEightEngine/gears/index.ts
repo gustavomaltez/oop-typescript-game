@@ -1,3 +1,1 @@
-import Sprite from './Sprite/Sprite';
-
-export { Sprite };
+export * from './Sprite/Sprite';
