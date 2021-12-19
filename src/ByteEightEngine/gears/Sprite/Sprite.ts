@@ -68,7 +68,7 @@ class Sprite {
    *
    * @returns {ISpriteFramePosition} First frame data.
    */
-  public getFirstFrame = () => {
+  public getFirstFrame = (): ISpriteFramePosition => {
     return this.frames[0];
   };
 
@@ -77,7 +77,7 @@ class Sprite {
    *
    * @returns {ISpriteFramePosition} Last frame data.
    */
-  public getLastFrame = () => {
+  public getLastFrame = (): ISpriteFramePosition => {
     if (this.data.spriteCount === 'SINGLE_SPRITE') return this.getFirstFrame();
 
     return this.frames[this.data.spriteCount - 1];

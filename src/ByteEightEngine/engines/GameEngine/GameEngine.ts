@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-empty-function */
 import {
   AssetsEngine,
   DrawingEngineManager,
@@ -70,6 +71,9 @@ class GameEngine {
     );
   };
 
+  /**
+   * A method tho be executed in loop once the game is started.
+   */
   private internalGameLoop = () => {
     this.drawnEngine.clear();
     this.gameUpdate();
@@ -77,6 +81,9 @@ class GameEngine {
     window.requestAnimationFrame(this.internalGameLoop);
   };
 
+  /**
+   * A method to start the game loop
+   */
   public startGame = () => {
     this.internalGameLoop();
   };

@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 import { IDrawingEngine, IGameSettings } from '@byte-eight-engine/engines';
 import { Logger, Service } from '@byte-eight-engine/logger';
 import { ISpriteFramePosition } from 'src/ByteEightEngine/gears/Sprite/types';
@@ -57,6 +56,9 @@ class Canvas implements IDrawingEngine {
     this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
   };
 
+  /**
+   * Drawn each map block (could be useful to drawn sprites on map coordinates)
+   */
   public drawnLayers = () => {
     const { canvasSize, blockSize, scale } = this.gameSettings;
     const { columns, rows } = canvasSize;
@@ -76,6 +78,11 @@ class Canvas implements IDrawingEngine {
     }
   };
 
+  /**
+   * Drawn a sprite on map coordinates (the coordinates represents blocks on map)
+   *
+   * e.g: drawnSpriteOnCoordinates(sprite,10,10);
+   */
   public drawnSpriteOnCoordinates = (
     sprite: ISpriteFramePosition,
     x: number,
@@ -86,9 +93,10 @@ class Canvas implements IDrawingEngine {
 
     const { image, width, height, sourceX, sourceY } = sprite;
 
-    const dx = (x * scaledBlockSize) - ((width * scale) / 2) + scaledBlockSize / 2;
-    const dyBig = (y * scaledBlockSize ) - (height * scale) + scaledBlockSize;
-    const dySmall = (y * scaledBlockSize ) - ((height * scale) / 2) + scaledBlockSize / 2;
+    const dx = x * scaledBlockSize - (width * scale) / 2 + scaledBlockSize / 2;
+    const dyBig = y * scaledBlockSize - height * scale + scaledBlockSize;
+    const dySmall =
+      y * scaledBlockSize - (height * scale) / 2 + scaledBlockSize / 2;
 
     this.context.drawImage(
       image,
@@ -103,6 +111,11 @@ class Canvas implements IDrawingEngine {
     );
   };
 
+  /**
+   * Drawn a sprite on map positions (specific x and y pixels)
+   *
+   * e.g: drawnSpriteOnCoordinates(sprite,243,198);
+   */
   public drawnSpriteOnMapPositions = (
     sprite: ISpriteFramePosition,
     x: number,
@@ -113,9 +126,9 @@ class Canvas implements IDrawingEngine {
 
     const { image, width, height, sourceX, sourceY } = sprite;
 
-    const dx = x - ((width * scale) / 2) + scaledBlockSize / 2;
-    const dyBig = y - (height * scale) + scaledBlockSize;
-    const dySmall = y - ((height * scale) / 2) + scaledBlockSize / 2;
+    const dx = x - (width * scale) / 2 + scaledBlockSize / 2;
+    const dyBig = y - height * scale + scaledBlockSize;
+    const dySmall = y - (height * scale) / 2 + scaledBlockSize / 2;
 
     this.context.drawImage(
       image,

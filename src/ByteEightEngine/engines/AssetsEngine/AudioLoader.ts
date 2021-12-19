@@ -46,6 +46,7 @@ class AudioLoader {
               `Audio with id "${audio.id}" loaded successfully.
               Attempts: ${loadingAttempts}/${this.loadingRounds}`,
             );
+
             // If the audio is already successfully loaded, then breaks the
             // while loop to load the next audio.
             break;

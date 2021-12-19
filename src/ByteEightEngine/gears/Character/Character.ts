@@ -3,6 +3,9 @@ import FourDimensionsSprite from '../FourDimensionsSprite/FourDimensionsSprite';
 import { SpritePosition } from '../FourDimensionsSprite/types';
 import { ICharacterSprites } from './types';
 
+/**
+ * A character abstraction, allows moves and animates a character.
+ */
 class Character {
   private walkingSpeed: number;
 
@@ -30,10 +33,20 @@ class Character {
     this.currentSprite = currentSprite;
   }
 
-  public getCurrentPosition = () => {
+  /**
+   *  Retrieve the actual character position on map.
+   *
+   * @returns {{ x: number, y: number }} The current character position on map
+   */
+  public getCurrentPosition = (): { x: number; y: number } => {
     return { x: this.xPosition, y: this.yPosition };
   };
 
+  /**
+   * Drawn the character on screen.
+   *
+   * @param {IDrawingEngine} drawnEngine The engine to drawn the character on screen
+   */
   public drawn = (drawnEngine: IDrawingEngine) => {
     const spriteType: FourDimensionsSprite =
       this.spritesSettings.sprites[this.currentSprite];
@@ -49,12 +62,20 @@ class Character {
     );
   };
 
+  /**
+   *  Changes the current character sprite animation.
+   *
+   * @param {keyof ICharacterSprites['sprites']} currentSprite Current sprite name
+   */
   public setCurrentSprite = (
     currentSprite: keyof ICharacterSprites['sprites'],
   ) => {
     this.currentSprite = currentSprite;
   };
 
+  /**
+   * Moves the character down.
+   */
   public moveDown = () => {
     const nextPosition = {
       x: this.xPosition,
@@ -70,6 +91,9 @@ class Character {
     };
   };
 
+  /**
+   * Moves the character left.
+   */
   public moveLeft = () => {
     const nextPosition = {
       x: this.xPosition - this.walkingSpeed,
@@ -85,6 +109,9 @@ class Character {
     };
   };
 
+  /**
+   * Moves the character up.
+   */
   public moveUp = () => {
     const nextPosition = {
       x: this.xPosition,
@@ -100,6 +127,9 @@ class Character {
     };
   };
 
+  /**
+   * Moves the character right.
+   */
   public moveRight = () => {
     const nextPosition = {
       x: this.xPosition + this.walkingSpeed,

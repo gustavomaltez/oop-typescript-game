@@ -21,7 +21,7 @@ class DrawingEngineManager {
   }
 
   /**
-   * Loads the provided strategy provided on current class constructor.
+   * Loads the strategy provided on current class constructor.
    *
    * @returns {IDrawingEngine} A drawn engine.
    */

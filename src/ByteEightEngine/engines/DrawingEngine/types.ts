@@ -19,19 +19,35 @@ export interface IDrawingEngine {
    */
   setupEngine: () => Promise<void>;
 
+  /**
+   * Drawn a sprite on map coordinates (the coordinates represents blocks on map)
+   *
+   * e.g: drawnSpriteOnCoordinates(sprite,10,10);
+   */
   drawnSpriteOnCoordinates: (
     sprite: ISpriteFramePosition,
     x: number,
     y: number,
   ) => void;
 
+  /**
+   * Drawn a sprite on map positions (specific x and y pixels)
+   *
+   * e.g: drawnSpriteOnCoordinates(sprite,243,198);
+   */
   drawnSpriteOnMapPositions: (
     sprite: ISpriteFramePosition,
     x: number,
     y: number,
   ) => void;
 
+  /**
+   * Remove all drawn items on screen.
+   */
   clear: () => void;
 
+  /**
+   * Drawn each map block (could be useful to drawn sprites on map coordinates)
+   */
   drawnLayers: () => void;
 }

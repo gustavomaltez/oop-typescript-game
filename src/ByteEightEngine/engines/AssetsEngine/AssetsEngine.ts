@@ -5,7 +5,7 @@ import SpriteLoader from './SpriteLoader';
 import { IAssetsData, IAssetsSettings, ILoadedSpriteAssetEntry } from './types';
 
 /**
- * Abstraction to load assets and makes it usable
+ * Abstraction to load assets and lets it available during the game
  */
 class AssetsEngine {
   private spriteLoader: SpriteLoader;
@@ -18,6 +18,7 @@ class AssetsEngine {
 
   constructor(settings: IAssetsSettings) {
     this.isLoaded = false;
+
     this.spriteLoader = new SpriteLoader(
       settings.sprites,
       settings.loadingRounds,
@@ -31,6 +32,9 @@ class AssetsEngine {
     };
   }
 
+  /**
+   * Loads the sprites and audios.
+   */
   public loadAllAssets = async () => {
     Logger.info(Service.ASSETS_ENGINE, `Loading all game assets...`);
 
@@ -41,6 +45,7 @@ class AssetsEngine {
       );
       throw new UnableToLoadAssets(`All assets already are loaded.`);
     }
+
     const loadedAudios = await this.audioLoader.loadAll();
     const loadedSprites = await this.spriteLoader.loadAll();
 
@@ -56,6 +61,12 @@ class AssetsEngine {
     );
   };
 
+  /**
+   * Returns a specific loaded sprite by id.
+   *
+   * @param {string} id The sprite's id to retrieve.
+   * @returns {ILoadedSpriteAssetEntry} The loaded sprite
+   */
   public getSpriteById = (id: string): ILoadedSpriteAssetEntry => {
     if (!this.isLoaded)
       throw new Error("assets isn't loaded yet, please load it");
